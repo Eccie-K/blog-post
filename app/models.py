@@ -17,6 +17,8 @@ class User(UserMixin, db.Model):
     username = db.Column(db.String(255))
     password_hash = db.Column(db.String(255))
     email = db.Column(db.String(255),unique = True,index = True)
+    bio = db.Column(db.String(255))
+    profile_pic_path = db.Column(db.String())
     blogs = db.relationship('Blog',backref = 'user',lazy = 'dynamic')
 
     @property
@@ -56,5 +58,5 @@ class Blog(db.Model):
      
      @classmethod
      def get_blogs(cls,pitch_category):
-        pitches = Pitch.query.filter_by(blog_category=pitch_category).all()
+        blogs = Blog.query.filter_by(blog_category=pitch_category).all()
         return blogs
