@@ -1,8 +1,11 @@
 from . import db
 from werkzeug.security import generate_password_hash,check_password_hash
+from flask_login import UserMixin
+from . import login_manager
 
 
-class User(db.Model):
+
+class User(UserMixin, db.Model):
 
     __tablename__ = 'users'
 
@@ -37,3 +40,17 @@ class Blog(db.Model):
      users_id = db.Column(db.Integer,db.ForeignKey("users.id"))
      upvotes = db.Column(db.Integer)
      downvotes = db.Column(db.Integer)
+
+     def save_blog(self):
+         db.session.add(self)
+         db.session.commit()
+
+     @classmethod
+     def get_blog(cls,id):
+        blog = Blog.query.filter_by(id=id).first()
+        return blog
+     
+     @classmethod
+     def get_blogs(cls,pitch_category):
+        pitches = Pitch.query.filter_by(blog_category=pitch_category).all()
+        return blogs
