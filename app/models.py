@@ -1,25 +1,38 @@
-class Sources:
-    '''
-    News class to define News sources Objects
-    '''
-
-    def __init__(self, id, name, description):
-        self.id = id
-        self.name = name
-        self.description = description
+from . import db
+from werkzeug.security import generate_password_hash,check_password_hash
 
 
-class Articles:
-    '''
-    Headlines to define News articles class
-    '''
+class User(db.Model):
 
-    def __init__(self, source, author, title, description, publishedAt, url, urlToImage):
-        self.source = source
-        self.author = author
-        self.title = title
-        self.description = description
-        self.publishedAt = publishedAt
-        self.url = url
-        self.urlToImage = urlToImage
-        
+    __tablename__ = 'users'
+
+    id = db.Column(db.Integer,primary_key = True)
+    username = db.Column(db.String(255))
+    password_hash = db.Column(db.String(255))
+    blogs = db.relationship('Blog',backref = 'user',lazy = 'dynamic')
+
+    @property
+    def password(self):
+        raise AttributeError('You cannot read the password attribute')
+
+    @password.setter
+    def password(self, password):
+        self.password_hash = generate_password_hash(password)
+
+    def verify_password(self,password):
+        return check_password_hash(self.password_hash,password)
+
+    def __repr__(self):
+        return f'User {self.username}'    
+
+
+class Blog(db.Model):
+     __tablename__ = 'blogs'
+
+     id = db.Column(db.Integer,primary_key = True)
+     blog  = db.Column(db.String(255))
+     blog_content = db.Column(db.String())
+     blog_category =  db.Column(db.String(255))
+     users_id = db.Column(db.Integer,db.ForeignKey("users.id"))
+     upvotes = db.Column(db.Integer)
+     downvotes = db.Column(db.Integer)
