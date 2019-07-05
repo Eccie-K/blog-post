@@ -1,1 +1,17 @@
+{% macro displayBlogsList(blog_list) %}
 
+    {% for blog in blog_list %}
+        <div class="col-xs-12 col-sm-4 col-md-2 col-lg-2 panel bg">
+            <p>{{ blog_content }}</p>
+            
+            <p class="text-center">{{blog.blog_content}}</p>
+            
+            <h5 class="text-center">Published by: {{blog.user.username}}</h5>
+            <li class="text-center">
+                    <a href="/pitch/{{pitch.id}}">Read Blog</a>
+                </li>
+        </div>
+
+    {% endfor %}
+
+{% endmacro %}

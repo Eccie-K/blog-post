@@ -41,11 +41,11 @@ class Blog(db.Model):
 
      id = db.Column(db.Integer,primary_key = True)
      blog  = db.Column(db.String(255))
-     blog_content = db.Column(db.String())
+     blog_content = db.Column(db.String(5000))
      blog_category =  db.Column(db.String(255))
      users_id = db.Column(db.Integer,db.ForeignKey("users.id"))
-     upvotes = db.Column(db.Integer)
-     downvotes = db.Column(db.Integer)
+     likes = db.Column(db.Integer)
+     dislikes = db.Column(db.Integer)
 
      def save_blog(self):
          db.session.add(self)

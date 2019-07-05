@@ -1,3 +1,56 @@
 {% extends 'base.html'%}
+{% import 'macros.html' as macro%}
+
+
+
+
+    
+    {% block content %}
+    <div class ="categories">
+        <div class='container card  block' >
+            <h3 >Politics</h3>
+            <ul>
+                {{ macro.displayBlogsList(politics)}}
+            </ul>
+        </div>
+        
+        <div class='container card  block' >
+            <h3 >Business</h3>
+            <ul>
+                {{ macro.displayBlogsList(business)}}
+            </ul>
+        </div>
+        
+        <div class='container card  block' >
+            <h3 > Lifestyle</h3>
+            <ul>
+            {{ macro.displayBlogsList(lifestyle)}}
+        </ul>
+    </div>
+    
+    <div class='container card  block' >
+        <h3>Health & Fitness</h3>
+        <ul>
+        {{ macro.displayBlogsList(health)}}
+    </ul>
+</div>
+
+<div class='container card  block' >
+    <h3 >Science & Technology</h3>
+    <ul>
+         {{ macro.displayBlogsList(technology)}}
+        </ul>
+    </div>
+</div>
+<style>
+
+    .categories{
+        flex-direction: column;
+        margin-left: 40%;
+    }
+
+
+</style>
+{% endblock%}  
 
 
