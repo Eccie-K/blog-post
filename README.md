@@ -24,11 +24,9 @@ Blog-Post is a web application that allows users write blogs,read and comment on
 - Writer clicks on create blog, inputs data and clicks submit. Blog is dispyed.<br>
 - Writer deletes comments by clicking delete button<br>
 - Writer updates a blog by clicking on update blog button.<br>
-- Writer clicks on sign up, sign up form displayed
-- Writer clicks on sign in,Sign in form displayed.
--Writer signs in, profile, edit profile and create blog displayed.
-
-        
+- Writer clicks on sign up, sign up form displayed<br>
+- Writer clicks on sign in,Sign in form displayed.<br>
+- Writer signs in, profile, edit profile and create blog displayed.<br>
         
 <h2>Set Up Instructions and Requirements</h2>
 - Clone this repository: https://github.com/Eccie-K/blog-post.git<br>
