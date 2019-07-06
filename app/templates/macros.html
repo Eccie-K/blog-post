@@ -8,10 +8,19 @@
             
             <h5 class="text-center">Published by: {{blog.user.username}}</h5>
             <li class="text-center">
-                    <a href="/pitch/{{pitch.id}}">Read Blog</a>
+                    <a href="/blog/{{blog.id}}">Read Blog</a>
                 </li>
         </div>
 
     {% endfor %}
 
+{% endmacro %}
+
+{% macro displayComments(comments_list) %}
+    {% for comment in comments_list %}
+        <div class="col-md-12">
+            <h5>{{comment.user.username}}</h5>
+            <p>{{comment.comment}}</p>
+        </div>
+    {% endfor %}
 {% endmacro %}

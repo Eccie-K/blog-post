@@ -1,0 +1,40 @@
+{% extends 'base.html'%}
+{% import 'macros.html' as macro%}
+{% import "bootstrap/wtf.html" as wtf %}
+
+<!DOCTYPE html>
+<html>
+        
+        
+        
+        {% block content %}
+        <div class="container">
+            <div class="row">
+               
+                <p>{{blog.blog_content}}</p>
+                <span>
+                <p>Posted by {{blog.user.username| capitalize}}</p>
+                <a href="/blog/{{blog.id}}?likes=1">
+                <i class="material-icons"></i>
+                    <i class="material-icons">Likes</i>
+                </a>{{blog.likes}} <a href="/blog/{{blog.id}}?dislikes=1">
+                    <i class="material-icons">Dislikes</i>
+                </a>{{blog.dislikes}}</span>
+                <br>
+                <br>
+                <a class="ratings" href="/blog/new/"> Create Blog</a>
+                <br>
+                <br>
+                <a class="btn btn-sucess" href="/blog/new/"> Update Blog</a>
+                 
+            </div>
+            <div class="row">
+                <hr>
+                
+                    {{ wtf.quick_form(comment_form) }}
+                
+                <h3>Comments</h4>
+                {{macro.displayComments(comments)}}
+            </div>
+        </div>
+        {% endblock %}
