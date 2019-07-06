@@ -26,6 +26,10 @@
                 <br>
                 <br>
                 <a class="btn btn-sucess" href="/blog/new/"> Update Blog</a>
+                <br>
+                <br>
+                <button type="button" class="btn btn-danger">Delete Blog</button>
+               
                  
             </div>
             <div class="row">
@@ -33,7 +37,7 @@
                 
                     {{ wtf.quick_form(comment_form) }}
                 
-                <h3>Comments</h4>
+                <h3>Comments</h3>
                 {{macro.displayComments(comments)}}
             </div>
         </div>

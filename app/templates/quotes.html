@@ -1,0 +1,44 @@
+{% extends 'base.html'%}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+</head>
+<body>
+ 
+    {% block content %}
+    <div class="container">
+    <h1> GENERAL QUOTES BLOG </h1>
+
+    <div class="well-lg" id="random">
+            <h1>Random Quote</h1> <br>
+            <p>quote ID: {{quote.id}}</p> 
+            <p>{{quote.quote}}</p>
+            <p>Author: {{quote.author}}</p> 
+            <p>{{quote.permalink}}</p> 
+        </div>
+    </div>
+    <div class="container">
+
+        <h1>QUOTES BLOG</h1>
+
+        <div class="row">
+            {% for blogs in blogs %}
+            <div class="col-md-3">
+                <div class="container">
+                    <h1>{{blogs.title}}</h1>
+                    <p>{{ new_blogs.content }}</p>
+                    <a href="{{url_for('main.new_blog',blog_id = blogs.id)}}" class="btn btn-info"> Add a comment</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    
+    {% endblock %}
+</body>
+</html>

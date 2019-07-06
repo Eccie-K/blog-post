@@ -1,4 +1,5 @@
 export SECRET_KEY='esther'
+export  QUOTES_URL ='http://quotes.stormconsultancy.co.uk/random.json'
 export DATABASE_URL='postgresql+psycopg2://esther:esther@localhost/pitches'
 export MAIL_USERNAME='ecciekay100@gmail.com'
 export MAIL_PASSWORD='Esther10@'

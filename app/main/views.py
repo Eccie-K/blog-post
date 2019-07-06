@@ -1,7 +1,7 @@
 from flask import render_template,request,redirect,url_for,abort
 from . import main
 from flask_login import login_required,current_user
-from ..models import User,Blog,Comments
+from ..models import User,Blog,Comments,Quotes
 from .forms import BlogForm, UpdateProfile,CommentsForm
 from .. import db,photos
 
@@ -114,7 +114,7 @@ def blog(id):
 
     return render_template("blog.html", blog = blog, comment_form = comment_form, comments = comments)
 
-main.route('/blog/<int:id>/update', methods = ['GET','POST'])
+@main.route('/blog/<int:id>/update', methods = ['GET','POST'])
 @login_required
 def update_blog(blog_id):
     blog = Blog.query.get_or_404(blog_id)
@@ -126,7 +126,7 @@ def update_blog(blog_id):
             blog.content = form.content.data
 
             db.session.commit()
-            flash ('your post has been updated', 'success')
+            flash ('your post has been updated','success')
 
             return redirect(url_for('blog',blog_id = blog.id))
             
@@ -135,6 +135,21 @@ def update_blog(blog_id):
                 form.content.data = blog.content 
 
         return render_template('create_blog.html',title = 'Update Blog', blog_form = form)
+
+@main.route('/blog/<int:id>/delete', methods = ['POST'])
+@login_required
+def delete_blog(blog_id):
+    blog = Blog.query.get_or_404(blog_id)
+    if blog.author != current_user:
+        abort(403)
+        db.session.delete(blog)
+        db.session.commit()
+
+        flash('Your blog has been deleted' 'success')
+
+        return redirect(url_for('index'))
+
+
 
 
 

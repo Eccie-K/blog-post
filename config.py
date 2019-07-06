@@ -3,8 +3,9 @@ import os
 class Config:
 
     SECRET_KEY = os.environ.get('SECRET_KEY')
+    QUOTES_URL ='http://quotes.stormconsultancy.co.uk/random.json'
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://esther:esther@localhost/blog'
-    UPLOADED_PHOTOS_DEST ='app/static/photos'
+    UPLOADED_PHOTOS_DEST = 'app/static/photos'
     
 
      #  email configurations

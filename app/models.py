@@ -4,6 +4,18 @@ from flask_login import UserMixin
 from . import login_manager
 
 
+class Quotes:
+    '''
+    Quote class to define quote Objects
+    '''
+
+    def __init__(self,id,author,quote,permalink):
+        self.id =id
+        self.author = author
+        self.quote = quote
+        self.permalink = permalink
+
+
 @login_manager.user_loader
 def load_user(user_id):
     return User.query.get(int(user_id))
