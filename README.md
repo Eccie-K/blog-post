@@ -18,14 +18,11 @@ Blog-Post is a web application that allows users write blogs,read and comment on
 
 
 <h2>Behaviour Driven Development (BDD)</h2>
-|_Behaviour______________|_input____________________|_Outcome__________|
-|Display random quote____|___click random___________|Random quotes_____|
-|Read Blog_______________|__Click on Read blog______|_Blog displays____|        
-|_Comment on Blog________|_Click on comment and type|__Comment displays|
-|_ Create Blog___________|Click on create blog______|Blog displays_____|
-|_ Update Blog___________|____Click on update blog__|Updated Blog______|
-|_ Delete Blog___________|__Click on delete blog____|_ Deleted Blog____|    
-        
+Behaviour
+==============================================
+
+===============================================
+
         
         
 <h2>Set Up Instructions and Requirements</h2>
