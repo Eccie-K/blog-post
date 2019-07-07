@@ -114,6 +114,10 @@ def blog(id):
 
     return render_template("blog.html", blog = blog, comment_form = comment_form, comments = comments)
 
+
+
+
+
 @main.route('/blog/<int:id>/update', methods = ['GET','POST'])
 @login_required
 def update_blog(blog_id):
@@ -136,7 +140,7 @@ def update_blog(blog_id):
 
         return render_template('create_blog.html',title = 'Update Blog', blog_form = form)
 
-@main.route('/blog/<int:id>/delete', methods = ['POST'])
+@main.route('/blog/delete', methods = ['POST'])
 @login_required
 def delete_blog(blog_id):
     blog = Blog.query.get_or_404(blog_id)
