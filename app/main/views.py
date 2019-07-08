@@ -120,9 +120,9 @@ def blog(id):
 
 @main.route('/blog/update/<int:id>', methods = ['GET','POST'])
 @login_required
-def update_blog(blog_id):
-    blog = Blog.query.get_or_404(blog_id)
-    if blog.author != current_user:
+def update_blog(id):
+    blog = Blog.query.get_or_404(id)
+    if blog.user != current_user:
         abort(403)
         form = BlogForm()
         if form.validate_on_submit():
@@ -151,7 +151,7 @@ def delete_blog(id):
 
         flash('Your blog has been deleted' 'success')
 
-        return redirect(url_for('index'))
+        
     return redirect(url_for('main.index'))
 
 

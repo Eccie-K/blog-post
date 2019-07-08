@@ -13,8 +13,8 @@
   
       <!-- Title -->
       <p>{{quote.quote}}</p>
-      <h4 class="card-title" ><a><h4 style = "color:white"></h4></a></h4>
-      <h2 align="center" style="color:white;"> BLOGS</h2>
+      <h2 class="card-title" style="color:white;"> BLOGS</h2>
+      
       <!-- Text -->
       <p class="card-text"> {{ macro.displayBlogsList(blogs)}}</p>
      
@@ -23,13 +23,14 @@
   </div>
   
 <style>
-.card-body{
-    flex-direction: row;
-    margin-left: 5%;
 
-}
 .card{
     background-color:olive;
+    
+}
+.card-body{
+  flex-direction: row;
+  margin-left: 25%;
 }
 </style>
   {% endblock%} 
