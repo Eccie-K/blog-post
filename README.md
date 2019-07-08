@@ -18,10 +18,14 @@ Blog-Post is a web application that allows users write blogs,read and comment on
 
 
 <h2>Behaviour Driven Development (BDD)</h2>
-|   Behaviour   |  Input  | Output  |
-|  :------------:---------:---------|
-|Signing in     |         |         |
-----------------:---------:---------|
+| Input | Output |
+| :---------------- | :---------------: |
+|User Logs in or signs up  | Login and User Form displays  |
+| --- |Quotes displays  |
+| User Clicks on the Navigation Bar | User is directed to the desired page |
+| User Posts a blog | Blog gets Posted|
+| Leave Application | Sign Out of application|
+
 <h2>Set Up Instructions and Requirements</h2>
 - Clone this repository: https://github.com/Eccie-K/blog-post.git<br>
 - Ensure you have python3.6 installed in your computer.<br>
