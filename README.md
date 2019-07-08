@@ -18,13 +18,15 @@ Blog-Post is a web application that allows users write blogs,read and comment on
 
 
 <h2>Behaviour Driven Development (BDD)</h2>
-| Input | Output |
-| :---------------- | :---------------: |
-|User Logs in or signs up  | Login and User Form displays  |
-| --- |Quotes displays  |
-| User Clicks on the Navigation Bar | User is directed to the desired page |
-| User Posts a blog | Blog gets Posted|
-| Leave Application | Sign Out of application|
+- User sees random quotes displayed on the page<br>
+- User clicks on read blog and the whole blog is displayed<br>
+- user inputs data on comment form and clicks submits. Comment is displayed<br>
+- Writer clicks on create blog, inputs data and clicks submit. Blog is dispyed.<br>
+- Writer deletes comments by clicking delete button<br>
+- Writer updates a blog by clicking on update blog button.<br>
+- Writer clicks on sign up, sign up form displayed<br>
+- Writer clicks on sign in,Sign in form displayed.<br>
+- Writer signs in, profile, edit profile and create blog displayed.<br>
 
 <h2>Set Up Instructions and Requirements</h2>
 - Clone this repository: https://github.com/Eccie-K/blog-post.git<br>
