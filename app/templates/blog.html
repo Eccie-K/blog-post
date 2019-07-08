@@ -20,15 +20,18 @@
                 </a>{{blog.likes}} <a href="/blog/{{blog.id}}?dislikes=1">
                     <i class="material-icons">Dislikes</i>
                 </a>{{blog.dislikes}}</span>
-                <br>
-                <br>
-                <a class="btn btn-success" href="/blog/new/"> Update Blog</a>
+                
                 <br>
                 <br>
                 <a class="btn btn-primary" href="/blog/new/"> Create Blog</a>
                 <br>
                 <br>
-                <button type="button" class="btn btn-danger" href="/blog/delete/">Delete Blog</button>
+               
+                <a class="btn btn-success" href="/blog/new/"> Update Blog</a>
+                <br>
+                <br>
+                <a class="btn btn-danger" href="{{url_for('main.delete_blog',id = blog.id)}}"> Delete Blog</a>
+              
                
                  
             </div>

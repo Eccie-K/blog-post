@@ -4,6 +4,7 @@ from flask_login import login_required,current_user
 from ..models import User,Blog,Comments,Quotes
 from .forms import BlogForm, UpdateProfile,CommentsForm
 from .. import db,photos
+from ..requests import get_quote
 
 
 
@@ -14,15 +15,13 @@ def index():
     function to display blog categories
     '''
     #Getting pitches from different categories
-    politics_blogs = Blog.get_blogs('politics')
-    business_blogs = Blog.get_blogs('business')
-    lifestyle_blogs = Blog.get_blogs('lifestyle')
-    health_blogs = Blog.get_blogs('health')
-    technology_blogs = Blog.get_blogs('technology')
+    blogs_blogs = Blog.get_blogs('blogs')
+    quote = get_quote()
+    
 
     
    
-    return render_template('index.html',politics = politics_blogs,business = business_blogs,lifestyle = lifestyle_blogs, technology = technology_blogs)
+    return render_template('index.html',blogs = blogs_blogs,quote = quote)
 
 
 
@@ -108,6 +107,7 @@ def blog(id):
         comment = comment_form.text.data
 
         new_comment = Comments(comment = comment,user = current_user,blog_id = blog)
+        
 
         new_comment.save_comment()
     comments = Comments.get_comments(blog)
@@ -118,7 +118,7 @@ def blog(id):
 
 
 
-@main.route('/blog/<int:id>/update', methods = ['GET','POST'])
+@main.route('/blog/update/<int:id>', methods = ['GET','POST'])
 @login_required
 def update_blog(blog_id):
     blog = Blog.query.get_or_404(blog_id)
@@ -140,11 +140,11 @@ def update_blog(blog_id):
 
         return render_template('create_blog.html',title = 'Update Blog', blog_form = form)
 
-@main.route('/blog/delete', methods = ['POST'])
+@main.route('/blog/delete/<int:id>', methods = ['GET', 'POST'])
 @login_required
-def delete_blog(blog_id):
-    blog = Blog.query.get_or_404(blog_id)
-    if blog.author != current_user:
+def delete_blog(id):
+    blog = Blog.query.get_or_404(id)
+    if blog.user != current_user:
         abort(403)
         db.session.delete(blog)
         db.session.commit()
@@ -152,6 +152,9 @@ def delete_blog(blog_id):
         flash('Your blog has been deleted' 'success')
 
         return redirect(url_for('index'))
+    return redirect(url_for('main.index'))
+
+
 
 
 

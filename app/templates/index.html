@@ -6,54 +6,35 @@
 
     
     {% block content %}
-    <div class ="categories">
-        <div class='container' >
-            <h3 align="center">Politics</h3>
-            <ul>
-                {{ macro.displayBlogsList(politics)}}
-            </ul>
-        </div>
-        
-        <div class='container' >
-            <h3 align="center">Business</h3>
-            <ul>
-                {{ macro.displayBlogsList(business)}}
-            </ul>
-        </div>
-        
-        <div class='container card  block' >
-            <h3 align="center"> Lifestyle</h3>
-            <ul>
-            {{ macro.displayBlogsList(lifestyle)}}
-        </ul>
+    <!-- Card -->
+<div class="card">
+    <!-- Card content -->
+    <div class="card-body">
+  
+      <!-- Title -->
+      <p>{{quote.quote}}</p>
+      <h4 class="card-title" ><a><h4 style = "color:white"></h4></a></h4>
+      <h2 align="center" style="color:white;"> BLOGS</h2>
+      <!-- Text -->
+      <p class="card-text"> {{ macro.displayBlogsList(blogs)}}</p>
+     
     </div>
-    
-    <div class='container card  block' >
-        <h3 align="center">Health & Fitness</h3>
-        <ul>
-        {{ macro.displayBlogsList(health)}}
-    </ul>
-</div>
-
-<div class='container card  block' >
-    <h3 align="center">Science & Technology</h3>
-    <ul>
-         {{ macro.displayBlogsList(technology)}}
-        </ul>
-    </div>
-</div>
+  
+  </div>
+  
 <style>
+.card-body{
+    flex-direction: row;
+    margin-left: 5%;
 
-    .categories{
-        flex-direction: column;
-        margin-left: 1%;
-    }
-    body{
-        background-color:white;
-    }
-    
-    
+}
+.card{
+    background-color:olive;
+}
 </style>
-{% endblock%}  
+  {% endblock%} 
+
+   
+       
 
 
